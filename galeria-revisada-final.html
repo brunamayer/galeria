@@ -1,0 +1,341 @@
+
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Releituras com p5.js – Galeria Inteli</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Space+Mono:wght@400&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.min.js"></script>
+  <script src="HenriqueBarone.js"></script>
+  <script src="PedroHenrique.js"></script>
+  <script src="PedroPinheiro.js"></script>
+  <script src="Larissa.js"></script>
+  <script src="Felipe.js"></script>
+  <script src="Leonardo.js"></script>
+  <script src="Mateus.js"></script>
+  <script src="Giovanna.js"></script>
+  <script src="Yanoma.js"></script>
+  <script src="Raphael.js"></script>
+  <style>
+    body {
+      font-family: 'Space Mono', monospace;
+      background: #262626;
+      color: #f5f5f5;
+      margin: 0;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      box-sizing: border-box;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      text-align: center;
+      max-width: 100%;
+    }
+
+    p {
+      font-family: 'Roboto', sans-serif;
+      font-size: 1rem;
+      width: 100%;
+      max-width: 700px;
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+
+    .galeria-container {
+      display: flex;
+      flex-direction: column;
+      gap: 3rem;
+      width: 100%;
+      max-width: 1200px;
+    }
+
+    .bloco-obras {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      background: rgba(245, 245, 245, 0.95);
+      padding: 2rem;
+      border-radius: 8px;
+      gap: 2rem;
+      justify-content: space-between;
+    }
+
+    .obra-original, .obra-releitura {
+      flex: 1 1 45%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      color: #111;
+      font-family: 'Roboto', sans-serif;
+    }
+
+    .obra-original img {
+      width: 100%;
+      max-width: 100%;
+      height: 400px;
+      object-fit: contain;
+      margin-bottom: 1rem;
+      border: 1px solid #ccc;
+    }
+
+    .canvas-box {
+      width: 100%;
+      max-width: 400px;
+      height: 400px;
+      margin-bottom: 1rem;
+    }
+
+    .descricao-texto {
+      font-size: 0.95rem;
+      line-height: 1.6;
+      text-align: left;
+    }
+
+    .subtitulo {
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+      font-size: 1.1rem;
+    }
+
+    .autor {
+      font-style: italic;
+      margin-bottom: 1rem;
+      color: #333;
+    }
+
+    a {
+      color: #0077cc;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 900px) {
+      .bloco-obras {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .obra-original, .obra-releitura {
+        width: 100%;
+        align-items: center;
+        text-align: center;
+      }
+
+      .descricao-texto {
+        text-align: center;
+      }
+
+      .canvas-box {
+        align-self: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="sobre">
+    <h1>GALERIA DE RELEITURAS – p5.js</h1>
+    <p>Este espaço apresenta as releituras interativas feitas por estudantes do Inteli a partir de obras visuais. Os trabalhos usam a biblioteca p5.js para criar animações e interações inspiradas em pinturas, padrões gráficos ou jogos históricos.</p>
+  </div>
+  <div class="galeria-container">
+
+    <div class="bloco-obras">
+      <div class="obra-original">
+        <span class="subtitulo">Pintura Original</span>
+        <img src="https://www.google.com/search?sca_esv=cf65d87ff3121f3e&q=Josef+Albers&udm=2..." alt="Homage to the Square: Apparition, Josef Albers, 1888">
+        <div class="autor">Homage to the Square: Apparition, Josef Albers, 1888</div>
+      </div>
+
+      <div class="obra-releitura">
+        <span class="subtitulo">Releitura</span>
+        <div id="canvas-ob1" class="canvas-box"></div>
+        <div class="descricao-texto">
+          <strong>Henrique Gomes Pitol Barone</strong><br><br>
+          Esta versão digital de Homenagem ao Quadrado transforma a tela estática de Albers em um sistema mais interativo...<br><br>
+          <a href="https://github.com/henriquegpb/JosefAlbersReimaginations.git" target="_blank">Ver código no GitHub</a>
+        </div>
+      </div>
+    </div>
+    
+
+    <div class="bloco-obras">
+      <div class="obra-original">
+        <span class="subtitulo">Pintura Original</span>
+        <img src="https://www.google.com/search?q=cal%C3%A7ad%C3%A3o+copacabna..." alt="Calçadão de Copacabana, Burle Marx, 1970">
+        <div class="autor">Calçadão de Copacabana, Burle Marx, 1970</div>
+      </div>
+
+      <div class="obra-releitura">
+        <span class="subtitulo">Releitura</span>
+        <div id="canvas-ob2" class="canvas-box"></div>
+        <div class="descricao-texto">
+          <strong>Pedro Henrique Prado de Oliveira</strong><br><br>
+          A animação foi pensada considerando que o calçadão, apesar de fixo no mundo real, carrega um movimento visual...<br><br>
+          <a href="https://github.com/pedrohproINT/pintura_em_p5.git" target="_blank">Ver código no GitHub</a>
+        </div>
+      </div>
+    </div>
+    
+
+    <div class="bloco-obras">
+      <div class="obra-original">
+        <span class="subtitulo">Pintura Original</span>
+        <img src="https://p5js.org/examples/advanced-canvas-rendering-multiple-canvases/" alt="A pintura estava no examplo da aula e na doc do P5">
+        <div class="autor">A pintura estava no examplo da aula e na doc do P5</div>
+      </div>
+
+      <div class="obra-releitura">
+        <span class="subtitulo">Releitura</span>
+        <div id="canvas-ob3" class="canvas-box"></div>
+        <div class="descricao-texto">
+          <strong>pedro Pinheiro Rodrigues</strong><br><br>
+          Inspirado na imagem de referência, criei os objetos em sequência...<br><br>
+          <a href="https://github.com/pedropinrodrigues/AulasUX-P5" target="_blank">Ver código no GitHub</a>
+        </div>
+      </div>
+    </div>
+    
+
+    <div class="bloco-obras">
+      <div class="obra-original">
+        <span class="subtitulo">Pintura Original</span>
+        <img src="https://bbj.hu/budapest/culture/art/hungarian-computer-art-pioneer-vera-molnar-honored-at-muepa/" alt="Juxtaposed by 25, Vera Molnár, 1992-2022">
+        <div class="autor">Juxtaposed by 25, Vera Molnár, 1992-2022</div>
+      </div>
+
+      <div class="obra-releitura">
+        <span class="subtitulo">Releitura</span>
+        <div id="canvas-ob4" class="canvas-box"></div>
+        <div class="descricao-texto">
+          <strong>Larissa Martins Pereira de Souza</strong><br><br>
+          Inspirado na obra "Juxtaposed by 25", de Vera Molnár, este jogo transforma uma grade de quadrados geométricos...<br><br>
+          <a href="https://github.com/larissamartinsz/projeto_p5.git" target="_blank">Ver código no GitHub</a>
+        </div>
+      </div>
+    </div>
+    
+
+    <div class="bloco-obras">
+      <div class="obra-original">
+        <span class="subtitulo">Pintura Original</span>
+        <img src="https://www.youtube.com/watch?v=fhd7FfGCdCo" alt="Pong, Ralph H. Baer e Ted Dabney, 1972">
+        <div class="autor">Pong, Ralph H. Baer e Ted Dabney, 1972</div>
+      </div>
+
+      <div class="obra-releitura">
+        <span class="subtitulo">Releitura</span>
+        <div id="canvas-ob5" class="canvas-box"></div>
+        <div class="descricao-texto">
+          <strong>Felipe de Melo Elgenneni</strong><br><br>
+          A interação no jogo envolve o movimento da barra controlada pelo jogador...<br><br>
+          <a href="https://github.com/ElgenneniF/pong" target="_blank">Ver código no GitHub</a>
+        </div>
+      </div>
+    </div>
+    
+
+    <div class="bloco-obras">
+      <div class="obra-original">
+        <span class="subtitulo">Pintura Original</span>
+        <img src="https://laart.art.br/wp-content/uploads/2020/04/maxbill5.jpg" alt="Serigrafia, Max bill, 1986">
+        <div class="autor">Serigrafia, Max bill, 1986</div>
+      </div>
+
+      <div class="obra-releitura">
+        <span class="subtitulo">Releitura</span>
+        <div id="canvas-ob6" class="canvas-box"></div>
+        <div class="descricao-texto">
+          <strong>Leonardo Ogata Pedrosa</strong><br><br>
+          Na interação desenvolvida é possível remover e adicionar a saturação de cores movendo o mouse no eixo x...<br><br>
+          <a href="https://github.com/Leoogata/UX_1" target="_blank">Ver código no GitHub</a>
+        </div>
+      </div>
+    </div>
+    
+
+    <div class="bloco-obras">
+      <div class="obra-original">
+        <span class="subtitulo">Pintura Original</span>
+        <img src="https://fotografia.folha.uol.com.br/galerias/1629381249913360-max-bill" alt="Max Bill">
+        <div class="autor">Max Bill</div>
+      </div>
+
+      <div class="obra-releitura">
+        <span class="subtitulo">Releitura</span>
+        <div id="canvas-ob7" class="canvas-box"></div>
+        <div class="descricao-texto">
+          <strong>Mateus Beppler Pereira</strong><br><br>
+          A interação com a obra funciona a partir da posição do mouse na tela...<br><br>
+          <a href="https://github.com/mateus-pereira-inteli/atividade1-ux-mod06-p5" target="_blank">Ver código no GitHub</a>
+        </div>
+      </div>
+    </div>
+    
+
+    <div class="bloco-obras">
+      <div class="obra-original">
+        <span class="subtitulo">Pintura Original</span>
+        <img src="https://artlogic-res.cloudinary.com/w_1200,h_900,c_limit,f_auto,fl_lossy/ws-nararoesler/usr/images/artworks/main_image/9741/25224_jlp_modulation-1116-copy.jpg" alt="Obra: Modulación 1116, Autor: Julio Le Parc, Ano: 2003/2013">
+        <div class="autor">Obra: Modulación 1116, Autor: Julio Le Parc, Ano: 2003/2013</div>
+      </div>
+
+      <div class="obra-releitura">
+        <span class="subtitulo">Releitura</span>
+        <div id="canvas-ob8" class="canvas-box"></div>
+        <div class="descricao-texto">
+          <strong>Giovanna Fátima de Britto Vieira</strong><br><br>
+          Esta obra é uma releitura interativa da peça Modulación 1116...<br><br>
+          <a href="https://github.com/giovanna-britto/Releitura-Le-Parc-P5" target="_blank">Ver código no GitHub</a>
+        </div>
+      </div>
+    </div>
+    
+
+    <div class="bloco-obras">
+      <div class="obra-original">
+        <span class="subtitulo">Pintura Original</span>
+        <img src="https://pt.artsdot.com/@@/D4AHTK-Josef-Albers-Estudo-para-Homage-%C3%A0-Pra%C3%A7a:-Ainda-lembrado" alt="Josef Albers - Estudo para Homage à Praça: Ainda lembrado">
+        <div class="autor">Josef Albers - Estudo para Homage à Praça: Ainda lembrado</div>
+      </div>
+
+      <div class="obra-releitura">
+        <span class="subtitulo">Releitura</span>
+        <div id="canvas-ob9" class="canvas-box"></div>
+        <div class="descricao-texto">
+          <strong>Yanomã Fernandes Konwski</strong><br><br>
+          Busquei atingir um estilo de arte expressionista, buscando que os quadrados se espalhassem...<br><br>
+          <a href="https://github.com/Yanomafpk/Ponderada-Bruna" target="_blank">Ver código no GitHub</a>
+        </div>
+      </div>
+    </div>
+    
+
+    <div class="bloco-obras">
+      <div class="obra-original">
+        <span class="subtitulo">Pintura Original</span>
+        <img src="https://s2-valor.glbimg.com/SV-lYDAWiqkvzVQSkmQ9y5Tb1Cs=/600x0/smart/filters:gifv():strip_icc()/i.s3.glbimg.com/v1/AUTH_63b422c2caee4269b8b34177e8876b93/internal_photos/bs/2019/e/E/Qq6BSdQiW5Iehkccmmgg/foto15cul-105-pape-d4.jpg" alt="Roda dos Prazeres, Lygia Pape, 1968">
+        <div class="autor">Roda dos Prazeres, Lygia Pape, 1968</div>
+      </div>
+
+      <div class="obra-releitura">
+        <span class="subtitulo">Releitura</span>
+        <div id="canvas-ob10" class="canvas-box"></div>
+        <div class="descricao-texto">
+          <strong>Raphael Felipe da Silva</strong><br><br>
+          eh... as esferas deveriam pulsar alternadamente, mas eu não consegui...<br><br>
+          <a href="https://github.com/RaphaelSilva09/tarefa-bruna-galeria-CC" target="_blank">Ver código no GitHub</a>
+        </div>
+      </div>
+    </div>
+    
+</div>
+</body>
+</html>

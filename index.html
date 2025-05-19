@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Galerias Inteli</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Space+Mono:wght@400&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.min.js"></script>
+  <script src="background.js"></script>
+
+  <style>
+    body {
+      font-family: 'Space Mono', monospace;
+      background: #262626;
+      color: #f5f5f5;
+      margin: 0;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      min-height: 100vh;
+      box-sizing: border-box;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+      text-align: center;
+    }
+
+    p {
+      font-family: 'Roboto', sans-serif;
+      font-size: 1rem;
+      max-width: 70%;
+      margin-bottom: 2.5rem;
+      text-align: center;
+    }
+
+    .sobre {
+      background: #262626;
+      width: 65vw;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 7vh;
+    }
+
+    .grid-principal {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2vw;
+      row-gap: 10vh;
+      width: 65vw;
+    }
+
+    .galeria-card {
+      background: rgba(245, 245, 245, 0.95);
+      color: #111;
+      padding: 1.5rem;
+      text-decoration: none;
+      font-family: 'Roboto', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.4);
+      transition: all 0.2s ease-in-out;
+    }
+
+    .galeria-card:hover {
+      background: rgba(230, 230, 230, 1);
+      transform: translateY(-5px);
+    }
+
+    .galeria-card img {
+      width: 100%;
+      margin-bottom: 1rem;
+      object-fit: cover;
+      aspect-ratio: 4 / 3;
+    }
+
+    .galeria-card strong {
+      font-size: 1.1rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .galeria-card span {
+      font-size: 0.9rem;
+      color: #333;
+    }
+
+    @media (max-width: 900px) {
+      .grid-principal {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .grid-principal {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="sobre">
+    <h1>GALERIA DE ATIVIDADES</h1>
+    <p>   Este espaço reúne pequenas galerias com os resultados de atividades realizadas nas aulas de UX/Design do Inteli.  
+  As propostas exploram o cruzamento entre desenho, design e computação, resultando em experiências gráficas e interativas criadas pelos estudantes.  
+  Cada link abaixo leva para uma coleção com os resultados de uma atividade específica.
+    </p>
+  </div>
+
+  <div class="grid-principal">
+    <a class="galeria-card" href="https://brunamayer.github.io/T11-CC05-2025/" target="_blank">
+      <img src="imgs/minhoca.png" alt="Galeria Desenhos">
+      <strong>CC05 T11 1A 2025</strong>
+      <span>Desenhos interativos com D3.js</span>
+    </a>
+
+    <a class="galeria-card" href="/T11-CC06-2025.html" onclick="alert('Em breve!')">
+      <img src="https://via.placeholder.com/400x300?text=CC06+T12" alt="Galeria Pinturas">
+      <strong>CC06 T11 1B 2025</strong>
+      <span>Releitura de Pinturas com P5.js</span>
+    </a>
+
+    <a class="galeria-card" href="#" onclick="alert('Em breve!')">
+      <img src="https://via.placeholder.com/400x300?text=Design+T13" alt="Galeria Componentes">
+      <strong>ES06 T13 1B 2025</strong>
+      <span>Componentes</span>
+    </a>
+
+
+
+  </div>
+
+</body>
+</html>
