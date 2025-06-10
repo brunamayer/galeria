@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Exercícios – Figma to Code (React Native)</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Space+Mono:wght@400&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Space Mono', monospace;
+      background: #262626;
+      color: #f5f5f5;
+      margin: 0;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      min-height: 100vh;
+      box-sizing: border-box;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+
+    p {
+      font-family: 'Roboto', sans-serif;
+      font-size: 1rem;
+      max-width: 700px;
+      margin: 0 auto 2rem auto;
+      text-align: center;
+    }
+
+    .galeria-container {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      width: 100%;
+      max-width: 1200px;
+      align-self: center;
+    }
+
+    .bloco-exercicio {
+      display: flex;
+      flex-wrap: wrap;
+      background: rgba(245, 245, 245, 0.95);
+      padding: 2rem;
+      border-radius: 8px;
+      gap: 5rem;
+      justify-content: flex-start;
+    }
+
+    .exercicio-coluna {
+      flex: 1 1 45%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      color: #111;
+      font-family: 'Roboto', sans-serif;
+    }
+
+    .exercicio-coluna img {
+      width: 100%;
+      height: 50vh;
+      object-fit: cover;
+      object-position: left top;
+      margin-bottom: 3rem;
+      margin-top: 0.75rem;
+      border-radius: 4px;
+    }
+
+    .descricao-texto {
+      font-size: 0.95rem;
+      line-height: 1.6;
+      text-align: left;
+    }
+
+    .subtitulo {
+      font-weight: bold;
+      margin-bottom: 0.25rem;
+      font-size: 1.1rem;
+    }
+
+    .autor, .alunos, .relato {
+      font-style: normal;
+      font-size: 0.95rem;
+      margin-bottom: 0.8rem;
+      color: #333;
+    }
+
+    a {
+      color: #0077cc;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 900px) {
+      .bloco-exercicio {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .exercicio-coluna {
+        width: 100%;
+        align-items: flex-start;
+        text-align: left;
+      }
+
+      .descricao-texto {
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="sobre">
+    <h1>GALERIA DE EXERCÍCIOS – Figma to Code</h1>
+    <p>
+      Esta galeria apresenta os componentes de interface desenvolvidos por grupos de estudantes do Inteli. Cada grupo projetou um componente no Figma com Auto Layout e uso do Dev Mode, e posteriormente implementou o componente usando React Native ou HTML/CSS, com base nas medidas, estilos e estrutura de código obtidas do próprio protótipo.
+    </p>
+  </div>
+
+  <div class="galeria-container">
+    <div class="bloco-exercicio">
+      <div class="exercicio-coluna">
+        <span class="subtitulo">Protótipo no Figma</span>
+        <img src="https://artlogic-res.cloudinary.com/w_2000,h_2000,c_limit,f_auto,fl_lossy,q_auto:good/ws-ropac/usr/images/artworks/main_image/items/de/dea04baa300949878babd0324bad5aae/image.jpg" alt="Homage to the Square">
+      </div>
+
+      <div class="exercicio-coluna">
+        <span class="subtitulo">Componente Desenvolvido</span>
+        <img src="https://artlogic-res.cloudinary.com/w_2000,h_2000,c_limit,f_auto,fl_lossy,q_auto:good/ws-ropac/usr/images/artworks/main_image/items/de/dea04baa300949878babd0324bad5aae/image.jpg" alt="Homage to the Square">
+
+        <span class="subtitulo">Alunas/os do Grupo</span>
+        <div class="alunos">Henrique Gomes, Pitol Barone e Pitol Barone</div>
+
+        <span class="subtitulo">Relato da Atividade</span>
+        <div class="relato">Nesta atividade, foi desenvolvido um componente a partir do protótipo no Figma, utilizando medidas e estilos obtidos via Dev Mode. A implementação foi feita com React Native e exigiu pequenos ajustes manuais para garantir fidelidade ao layout original.</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

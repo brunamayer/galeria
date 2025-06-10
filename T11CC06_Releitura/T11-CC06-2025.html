@@ -14,142 +14,148 @@
   <script src="LeonardoOgata.js"></script>
   <script src="MatheusBeppler.js"></script>
   <script src="GiovannaVieira.js"></script>
-
+  <script src="Yanoma.js"></script>
+  
 
 
   <style>
-    body {
-      font-family: 'Space Mono', monospace;
-      background: #262626;
-      color: #f5f5f5;
-      margin: 0;
-      padding: 2rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      min-height: 100vh;
-      box-sizing: border-box;
-    }
+  body {
+  font-family: 'Space Mono', monospace;
+  background: #262626;
+  color: #f5f5f5;
+  margin: 0;
+  padding: 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
 
-    h1 {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-      text-align: center;
-      max-width: 100%;
-    }
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  max-width: 100%;
+}
 
-    p {
-      font-family: 'Roboto', sans-serif;
-      font-size: 1rem;
-      width: 100%;
-      max-width: 700px;
-      margin-bottom: 2rem;
-      text-align: center;
-    }
+p {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1rem;
+  width: 100%;
+  max-width: 700px;
+  margin-bottom: 2.5rem;
+  text-align: center;
+}
 
-    .galeria-container {
-      display: flex;
-      flex-direction: column;
-      gap: 3rem;
-      width: 100%;
-      max-width: 1200px;
-    }
+.galeria-container {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  width: 100%;
+  max-width: 1200px;
+}
 
-    .bloco-obras {
-      display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
-      background: rgba(245, 245, 245, 0.95);
-      padding: 2rem;
-      border-radius: 8px;
-      gap: 2rem;
-      justify-content: space-between;
-    }
+.bloco-obras {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  background: rgba(245, 245, 245, 0.95);
+  padding: 2rem;
+  border-radius: 8px;
+  gap: 2.5rem;
+  justify-content: space-between;
+}
 
-    .obra-original, .obra-releitura {
-      flex: 1 1 45%;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      color: #111;
-      font-family: 'Roboto', sans-serif;
-    }
+.obra-original,
+.obra-releitura {
+  flex: 1 1 45%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  color: #111;
+  font-family: 'Roboto', sans-serif;
+}
 
-    .obra-original img {
-      width: 100%;
-      max-width: 100%;
-      height: 400px;
-      object-fit: contain;
-      margin-bottom: 1rem;
-    }
-        
+.obra-original img {
+  width: 100%;
+  height: auto;
+  max-height: 400px;
+  object-fit: contain;
+  object-position: left top;
+  margin-bottom: 1rem;
+}
 
-    .canvas-box {
-      width: 400px;
-      height: 400px;
-      position: relative;
-      margin-bottom: 1rem;
-      overflow: hidden;
-    }
+.canvas-box {
+  width: 100%;
+  max-width: 400px;
+  height: 400px;
+  position: relative;
+  margin-bottom: 1rem;
+  overflow: hidden;
+}
 
-    .canvas-box canvas {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100% !important;
-      height: 100% !important;
-      display: block;
-      z-index: 1;
-    }
+.canvas-box canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100% !important;
+  height: 100% !important;
+  display: block;
+  z-index: 1;
+}
 
+.descricao-texto {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  text-align: left;
+  margin-top: 0.5rem;
+}
 
-    .descricao-texto {
-      font-size: 0.95rem;
-      line-height: 1.6;
-      text-align: left;
-    }
+.subtitulo {
+  font-weight: bold;
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
 
-    .subtitulo {
-      font-weight: bold;
-      margin-bottom: 0.5rem;
-      font-size: 1.1rem;
-    }
+.autor {
+  font-style: italic;
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+  color: #333;
+}
 
-    .autor {
-      font-style: italic;
-      margin-bottom: 1rem;
-      color: #333;
-    }
+a {
+  color: #0077cc;
+  text-decoration: none;
+}
 
-    a {
-      color: #0077cc;
-      text-decoration: none;
-    }
+a:hover {
+  text-decoration: underline;
+}
 
-    a:hover {
-      text-decoration: underline;
-    }
+@media (max-width: 900px) {
+  .bloco-obras {
+    flex-direction: column;
+    align-items: center;
+  }
 
-    @media (max-width: 900px) {
-      .bloco-obras {
-        flex-direction: column;
-        align-items: center;
-      }
+  .obra-original,
+  .obra-releitura {
+    width: 100%;
+    align-items: center;
+    text-align: center;
+  }
 
-      .obra-original, .obra-releitura {
-        width: 100%;
-        align-items: center;
-        text-align: center;
-      }
+  .descricao-texto {
+    text-align: center;
+  }
 
-      .descricao-texto {
-        text-align: center;
-      }
+  .canvas-box {
+    align-self: center;
+  }
+}
 
-      .canvas-box {
-        align-self: center;
-      }
-    }
   </style>
 </head>
 <body>
@@ -167,7 +173,7 @@
       </div>
 
       <div class="obra-releitura">
-        <span class="subtitulo">Releitura</span>
+        <span class="subtitulo">Releitura Interativa</span>
         <div id="canvas-ob1" class="canvas-box">
         </div>
         <div class="descricao-texto">
@@ -187,7 +193,7 @@
       </div>
 
       <div class="obra-releitura">
-        <span class="subtitulo">Releitura</span>
+        <span class="subtitulo">Releitura Interativa</span>
         <div id="canvas-ob2" class="canvas-box">          
           <div id="p5_static"></div>
           <div id="p5_wave"></div>
@@ -195,7 +201,8 @@
 
         <div class="descricao-texto">
           <strong>Pedro Henrique Prado de Oliveira</strong><br><br>
-A animação foi pensada considerando que o calçadão, apesar de fixo no mundo real, carrega um movimento visual contínuo, como o das ondas do mar que ele representa. Para isso, utilizei uma função senoide aplicada ao deslocamento horizontal de cada coluna, com fase crescente, o que produz o efeito ondulatório dinâmico ao longo do tempo, reforçando a sensação rítmica e fluida da obra original.          <a href="https://github.com/pedrohproINT/pintura_em_p5.git" target="_blank">Ver código no GitHub</a>
+            A animação foi pensada considerando que o calçadão, apesar de fixo no mundo real, carrega um movimento visual contínuo, como o das ondas do mar que ele representa. Para isso, utilizei uma função senoide aplicada ao deslocamento horizontal de cada coluna, com fase crescente, o que produz o efeito ondulatório dinâmico ao longo do tempo, reforçando a sensação rítmica e fluida da obra original.          
+            <a href="https://github.com/pedrohproINT/pintura_em_p5.git" target="_blank">Ver código no GitHub</a>
         </div>
       </div>
     </div>
@@ -209,13 +216,13 @@ A animação foi pensada considerando que o calçadão, apesar de fixo no mundo 
       </div>
 
       <div class="obra-releitura">
-        <span class="subtitulo">Releitura</span>
+        <span class="subtitulo">Releitura Interativa</span>
         <div id="canvas-ob4" class="canvas-box" style="height: 500px;"></div>
         <div class="descricao-texto">
           <strong>Larissa Martins Pereira de Souza</strong><br><br>
-Inspirado na obra "Juxtaposed by 25", de Vera Molnár, este jogo transforma uma grade de quadrados geométricos em um desafio de memória visual. Na pintura original, cada quadrado carrega pequenas variações que brincam com ritmo e repetição — no jogo, eles ganham movimento e passam a piscar em sequência.<br><br>  
-O objetivo é memorizar a ordem dos quadrados que acendem e clicar na mesma sequência. A cada rodada, o desafio aumenta, exigindo mais atenção e concentração.<br><br>
-A proposta une arte e tecnologia de forma leve. Ao transformar uma obra estática em uma experiência interativa, o jogo convida o público a se envolver com a arte de outro jeito — brincando, explorando e aprendendo com ela. É uma forma diferente de compartilhar e manter viva a obra de artistas como Molnár, agora em formato digital.<br><br>
+          Inspirado na obra "Juxtaposed by 25", de Vera Molnár, este jogo transforma uma grade de quadrados geométricos em um desafio de memória visual. Na pintura original, cada quadrado carrega pequenas variações que brincam com ritmo e repetição — no jogo, eles ganham movimento e passam a piscar em sequência.<br><br>  
+          O objetivo é memorizar a ordem dos quadrados que acendem e clicar na mesma sequência. A cada rodada, o desafio aumenta, exigindo mais atenção e concentração.<br><br>
+          A proposta une arte e tecnologia de forma leve. Ao transformar uma obra estática em uma experiência interativa, o jogo convida o público a se envolver com a arte de outro jeito — brincando, explorando e aprendendo com ela. É uma forma diferente de compartilhar e manter viva a obra de artistas como Molnár, agora em formato digital.<br><br>
           <a href="https://github.com/larissamartinsz/projeto_p5.git" target="_blank">Ver código no GitHub</a>
         </div>
       </div>
@@ -230,7 +237,7 @@ A proposta une arte e tecnologia de forma leve. Ao transformar uma obra estátic
       </div>
 
       <div class="obra-releitura">
-        <span class="subtitulo">Releitura</span>
+        <span class="subtitulo">Releitura Interativa</span>
         <div id="canvas-ob6" class="canvas-box"></div>
         <div class="descricao-texto">
           <strong>Leonardo Ogata Pedrosa</strong><br><br>
@@ -249,7 +256,7 @@ A proposta une arte e tecnologia de forma leve. Ao transformar uma obra estátic
       </div>
 
       <div class="obra-releitura">
-        <span class="subtitulo">Releitura</span>
+        <span class="subtitulo">Releitura Interativa</span>
         <div id="canvas-ob7" class="canvas-box"></div>
         <div class="descricao-texto">
           <strong>Mateus Beppler Pereira</strong><br><br>
@@ -268,7 +275,7 @@ A proposta une arte e tecnologia de forma leve. Ao transformar uma obra estátic
       </div>
 
       <div class="obra-releitura">
-        <span class="subtitulo">Releitura</span>
+        <span class="subtitulo">Releitura Interativa</span>
         <div id="canvas-ob8" class="canvas-box"></div>
         <div class="descricao-texto">
           <strong>Giovanna Fátima de Britto Vieira</strong><br><br>
@@ -284,39 +291,21 @@ O conceito desta visualização se inspira em teorias cosmológicas que sugerem 
     <div class="bloco-obras">
       <div class="obra-original">
         <span class="subtitulo">Pintura Original</span>
-        <img src="https://pt.artsdot.com/@@/D4AHTK-Josef-Albers-Estudo-para-Homage-%C3%A0-Pra%C3%A7a:-Ainda-lembrado" alt="Josef Albers - Estudo para Homage à Praça: Ainda lembrado">
-        <div class="autor">Josef Albers - Estudo para Homage à Praça: Ainda lembrado</div>
+        <img src="https://pt.artsdot.com/ADC/Art-ImgThumb.nsf/O/A-D4AHTK/$FILE/Josef-albers-study-for-homage-to-the-square-still-remembered-s.Jpg" alt="Josef Albers - Estudo para Homage à Praça: Ainda lembrado">
+        <div class="autor">Homage to The Square: Apparition, Josef Albers, 1959</div>
       </div>
 
       <div class="obra-releitura">
-        <span class="subtitulo">Releitura</span>
+        <span class="subtitulo">Releitura Interativa</span>
         <div id="canvas-ob9" class="canvas-box"></div>
         <div class="descricao-texto">
           <strong>Yanomã Fernandes Konwski</strong><br><br>
-          Busquei atingir um estilo de arte expressionista, buscando que os quadrados se espalhassem...<br><br>
+          Busquei atingir um estilo de arte expressionista, buscando que os quadrados se espalhassem e se mexessem em direções aleatória e pré-programadas, buscando exemplificar e demonstrar uma desordem, mas que assim como a vida, no final tudo volta a ficar em ordem e para seu normal.<br><br>
           <a href="https://github.com/Yanomafpk/Ponderada-Bruna" target="_blank">Ver código no GitHub</a>
         </div>
       </div>
     </div>
-    
-
-    <div class="bloco-obras">
-      <div class="obra-original">
-        <span class="subtitulo">Pintura Original</span>
-        <img src="https://s2-valor.glbimg.com/SV-lYDAWiqkvzVQSkmQ9y5Tb1Cs=/600x0/smart/filters:gifv():strip_icc()/i.s3.glbimg.com/v1/AUTH_63b422c2caee4269b8b34177e8876b93/internal_photos/bs/2019/e/E/Qq6BSdQiW5Iehkccmmgg/foto15cul-105-pape-d4.jpg" alt="Roda dos Prazeres, Lygia Pape, 1968">
-        <div class="autor">Roda dos Prazeres, Lygia Pape, 1968</div>
-      </div>
-
-      <div class="obra-releitura">
-        <span class="subtitulo">Releitura</span>
-        <div id="canvas-ob10" class="canvas-box"></div>
-        <div class="descricao-texto">
-          <strong>Raphael Felipe da Silva</strong><br><br>
-          eh... as esferas deveriam pulsar alternadamente, mas eu não consegui...<br><br>
-          <a href="https://github.com/RaphaelSilva09/tarefa-bruna-galeria-CC" target="_blank">Ver código no GitHub</a>
-        </div>
-      </div>
-    </div>
+  
     
 </div>
 </body>
